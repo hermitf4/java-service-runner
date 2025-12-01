@@ -1,0 +1,3 @@
+This folder is intended to hold real Spring Boot microservice JAR files.
+This file 'example-service.txt' is only a placeholder for demonstration purposes.
+Do not attempt to execute this file.
