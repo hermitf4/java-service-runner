@@ -5,16 +5,30 @@ spring:
   application:
     name: service-router
 
+  config:
+    import: optional:classpath:config/routes.yml
+
   cloud:
     gateway:
-      routes:
-        - id: ID
-          uri: URI
-          predicates:
-            - Path=/
+      default-filters:
+        - DedupeResponseHeader=Vary Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      forwarding-headers-strategy: framework
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty: DEBUG
+    org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter: DEBUG
+    org.springframework.cloud.gateway.filter.NettyRoutingFilter: DEBUG
+    org.springframework.cloud.gateway.handler.FilteringWebHandler: DEBUG
+    org.springframework.web: INFO
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,gateway,routes,loggers,metrics
+  endpoint:
+    gateway:
+      enabled: true

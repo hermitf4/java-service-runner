@@ -1,0 +1,62 @@
+# --------------------------------------------------------------------------------------
+# spring/cloud/gateway/routes
+#
+# GATEWAY ROUTES CONFIGURATION FILE (NEUTRAL TEMPLATE)
+#
+# The routes defined here are disabled (commented out with '#') by default.
+# Any developer working locally can uncomment and customize the routes they need.
+# --------------------------------------------------------------------------------------
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        
+        # --- GENERIC EXAMPLE ROUTE ---
+        # 
+        # Use this route as a model to define your local services.
+        #
+        # - id: local-service-template
+        #   uri: http://localhost:8099
+        #   predicates:
+        #     - Path=/api/local-path/**
+        #   filters:
+        #     # Example filter: if your backend expects only /status,
+        #     # and not /api/local-path/status, then use:
+        #     # - StripPrefix=2
+        #     # (Removes /api and /local-path)
+            
+        
+        # --- EXAMPLE ROUTES FOR LOCAL ENVIRONMENT (TO UNCOMMENT) ---
+
+        # 1. Service A: Authentication Management (e.g., Port 8084)
+        # - id: auth-utility-service
+        #   uri: http://localhost:8084
+        #   predicates:
+        #     - Path=/auth/**
+
+        # 2. Service B: Master Data Management (e.g., Port 8087)
+        # - id: master-data-service
+        #   uri: http://localhost:8087
+        #   predicates:
+        #     - Path=/data-master/**
+
+        # 3. Service C: Shared Tools (e.g., Port 8086)
+        # - id: shared-tools-service
+        #   uri: http://localhost:8086
+        #   predicates:
+        #     - Path=/tools/**
+
+        # 4. Service D: File Management (e.g., Port 8081)
+        # - id: file-management-service
+        #   uri: http://localhost:8081
+        #   predicates:
+        #     - Path=/files/**
+        
+        # 5. Service E: User Interface (e.g., Port 8083)
+        # - id: ui-management-service
+        #   uri: http://localhost:8083
+        #   predicates:
+        #     - Path=/ui/**
+
+        # ... (Add other generic services here if necessary)
