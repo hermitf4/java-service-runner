@@ -25,3 +25,4 @@
 hs_err_pid*
 replay_pid*
 /service-router/target
+/service-router/src/main/resources/config/routes.yml
